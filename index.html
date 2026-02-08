@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر إلكتروني - دكان</title>
+    <style>
+        /* التصميم الأساسي */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ffdd40;
+        }
+        
+        /* الهيرو */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+        }
+        
+        /* المنتجات */
+        .products {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .product-price span {
+            color: #7f8c8d;
+            font-size: 16px;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+        
+        /* للتجاوب مع الهواتف */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                🛍️ دكان - المتجر الإلكتروني
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#">العروض</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">🛒 سلة المشتريات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <div class="container">
+            <h1>أفضل العروض والأسعار</h1>
+            <p>تسوق آلاف المنتجات بأسعار لا تقبل المنافسة مع توصيل سريع لكافة المناطق</p>
+            <a href="#products" class="btn">تسوق الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">أحدث المنتجات</h2>
+            <div class="product-grid">
+                
+                <!-- المنتج 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="سماعات رأس" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">سماعات رأس لاسلكية</h3>
+                        <p class="product-description">جودة صوت عالية مع عزل ضوضاء</p>
+                        <div class="product-price">
+                            <span>250 درهم</span>
+                            199 درهم
+                        </div>
+                        <button class="btn" onclick="addToCart('سماعات رأس')">أضف إلى السلة</button>
+                    </div>
+                </div>
+                
+                <!-- المنتج 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="كاميرا" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">كاميرا ديجيتال</h3>
+                        <p class="product-description">24 ميجابكسل، تصوير 4K</p>
+                        <div class="product-price">
+                            <span>1200 درهم</span>
+                            999 درهم
+                        </div>
+                        <button class="btn" onclick="addToCart('كاميرا ديجيتال')">أضف إلى السلة</button>
+                    </div>
+                </div>
+                
+                <!-- المنتج 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="ساعة ذكية" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">ساعة ذكية</h3>
+                        <p class="product-description">تتبع اللياقة، شاشة AMOLED</p>
+                        <div class="product-price">
+                            <span>400 درهم</span>
+                            349 درهم
+                        </div>
+                        <button class="btn" onclick="addToCart('ساعة ذكية')">أضف إلى السلة</button>
+                    </div>
+                </div>
+                
+                <!-- المنتج 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="حذاء رياضي" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">حذاء رياضي</h3>
+                        <p class="product-description">مريح للجري والتمارين</p>
+                        <div class="product-price">
+                            <span>180 درهم</span>
+                            149 درهم
+                        </div>
+                        <button class="btn" onclick="addToCart('حذاء رياضي')">أضف إلى السلة</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن المتجر</h3>
+                    <p>متجر إلكتروني يوفر أفضل المنتجات بأفضل الأسعار مع خدمة عملاء على مدار الساعة.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">الشروط والأحكام</a></li>
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">سياسة الخصوصية</a></li>
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">أسئلة شائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <p>📞 0522-123456</p>
+                    <p>✉️ info@dokan.com</p>
+                    <p>📍 الدار البيضاء، المغرب</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2024 دكان - جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // دالة إضافة إلى السلة
+        function addToCart(productName) {
+            alert('تم إضافة "' + productName + '" إلى سلة المشتريات!');
+            // هنا يمكن إضافة كود لحفظ المنتج في السلة
+        }
+        
+        // دالة البحث (يمكن تطويرها)
+        function searchProducts() {
+            let searchTerm = document.getElementById('searchInput').value;
+            alert('بحث عن: ' + searchTerm);
+            // هنا يمكن إضافة كود للبحث الحقيقي
+        }
+        
+        // عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('متجر دكان جاهز للتسوق!');
+        });
+    </script>
+</body>
+</html>
